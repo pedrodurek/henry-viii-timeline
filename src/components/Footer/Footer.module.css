@@ -1,0 +1,22 @@
+.foot {
+  text-align: center;
+  padding: 80px 20px 100px;
+  color: var(--muted);
+  font-size: 16px;
+  border-top: 1px solid rgba(216, 173, 85, 0.15);
+}
+.foot-rose {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 18px;
+  display: block;
+  animation: spin 40s linear infinite;
+}
+.foot :global(.btn) {
+  margin-top: 18px;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
