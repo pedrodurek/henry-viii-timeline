@@ -1,0 +1,111 @@
+.minimap {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  height: 60px;
+  padding: 0 24px;
+  background: rgba(14, 9, 7, 0.78);
+  backdrop-filter: blur(14px) saturate(1.4);
+  border-bottom: 1px solid rgba(216, 173, 85, 0.18);
+}
+.mm-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font: 800 14px var(--f-head);
+  letter-spacing: 0.15em;
+  color: var(--gold);
+}
+.mm-brand svg {
+  width: 28px;
+  height: 28px;
+  animation: spin 30s linear infinite;
+}
+.mm-track {
+  position: relative;
+  flex: 1;
+  height: 10px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  cursor: pointer;
+}
+.mm-segs > i {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  border-radius: 6px;
+  background: var(--c);
+  opacity: 0.85;
+  transition: transform 0.3s;
+}
+.mm-segs > i:hover {
+  transform: scaleY(1.8);
+}
+.mm-segs > i::after {
+  content: attr(data-n);
+  position: absolute;
+  bottom: 140%;
+  left: 50%;
+  translate: -50%;
+  font: 700 10px var(--f-head);
+  color: var(--c);
+}
+.mm-marker {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 3px;
+  height: 26px;
+  translate: -50% -50%;
+  background: var(--gold2);
+  border-radius: 2px;
+  box-shadow: 0 0 14px var(--gold);
+  transition: left 0.6s var(--ease);
+}
+.mm-marker b {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  translate: -50% 2px;
+  font: 700 11px var(--f-head);
+  color: var(--gold2);
+}
+.mm-links {
+  display: flex;
+  gap: 16px;
+}
+.mm-links a {
+  font: 600 12px var(--f-head);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.mm-links a:hover,
+.mm-links a.on {
+  color: var(--gold2);
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 1100px) {
+  .mm-links {
+    display: none;
+  }
+}
+@media (max-width: 900px) {
+  .minimap {
+    gap: 12px;
+    padding: 0 14px;
+  }
+  .mm-brand span {
+    display: none;
+  }
+}

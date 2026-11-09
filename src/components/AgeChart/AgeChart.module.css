@@ -1,0 +1,130 @@
+.toggle {
+  display: inline-flex;
+  margin-top: 26px;
+  padding: 5px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(216, 173, 85, 0.25);
+  position: relative;
+}
+.toggle button {
+  all: unset;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 999px;
+  font: 600 13px var(--f-head);
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  transition: 0.35s var(--ease);
+}
+.toggle button.on {
+  background: var(--gold);
+  color: #2a1a07;
+}
+.agechart {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  gap: 22px;
+}
+.arow {
+  display: grid;
+  grid-template-columns: 230px 1fr;
+  gap: 22px;
+  align-items: center;
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: 0.8s var(--ease);
+  transition-delay: var(--d);
+}
+.agechart.in .arow {
+  opacity: 1;
+  transform: none;
+}
+.awho {
+  all: unset;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+}
+.awho img {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 50% 18%;
+  box-shadow: 0 0 0 2px var(--c);
+  transition: transform 0.3s;
+}
+.awho:hover img {
+  transform: scale(1.12) rotate(-4deg);
+}
+.awho b {
+  font: 600 17px var(--f-head);
+  display: block;
+  line-height: 1.15;
+}
+.awho small {
+  color: var(--muted);
+  font-size: 14px;
+}
+.abars {
+  display: grid;
+  gap: 7px;
+}
+.abar {
+  position: relative;
+  height: 26px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.04);
+  overflow: hidden;
+}
+.abar i {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 0;
+  border-radius: 6px;
+  background: linear-gradient(90deg, color-mix(in srgb, var(--c) 60%, #000), var(--c));
+  transition: width 1.4s var(--ease);
+  transition-delay: calc(var(--d) + 0.2s);
+  box-shadow: 0 0 20px color-mix(in srgb, var(--c) 40%, transparent);
+}
+.abar.h i {
+  --c: var(--gold);
+}
+.abar span {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  translate: 0 -50%;
+  font: 700 13px var(--f-head);
+  letter-spacing: 0.06em;
+  text-shadow: 0 1px 4px #000;
+  white-space: nowrap;
+  z-index: 1;
+}
+.abar.gap {
+  height: auto;
+  background: none;
+  font-style: italic;
+  color: var(--muted);
+  font-size: 15px;
+  overflow: visible;
+}
+.agechart[data-mode='len'] .abar.h {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .arow {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}
+.awho:focus-visible {
+  outline: 2px solid var(--c);
+  outline-offset: 6px;
+  border-radius: 12px;
+}
